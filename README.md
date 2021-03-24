@@ -6,8 +6,9 @@
 * 引入 nest
 * 加入 webpack
 * 使用 ts-node, 全部支持typescript
-* 增加 多app功能
-* react 
+* 增加 多app入口功能
+* add react 
 
 * ssr
+* webpack 打包server,client...
 * lerna

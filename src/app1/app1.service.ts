@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { App1View } from './app1.view';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'app1!';
+  async getHello(): Promise<string> {
+    await 1;
+    return new Date().getTime() + "";
   }
 }

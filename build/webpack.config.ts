@@ -4,7 +4,6 @@ import { APPS } from './apps.config'
 const path = require('path');
 var nodeExternals = require('webpack-node-externals');
 let entry = APPS.reduce(function (cur, arr) {
-  console.log(cur, arr, '1================')
   cur[arr.name] = path.resolve(__dirname, arr.path);
   return cur
 }, {});
