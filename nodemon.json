@@ -1,0 +1,22 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules"
+  ],
+  "verbose": true,
+  "protocol": "inspector", 
+  "execMap": {
+    "ts": "ts-node "
+  },
+  "events": {
+  },
+  "watch": [
+    "src/"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js,json,ts,tsx",
+  "exec": "node --inspect -r ts-node/register  src/main.ts"
+}
