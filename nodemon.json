@@ -18,5 +18,5 @@
     "NODE_ENV": "development"
   },
   "ext": "js,json,ts,tsx",
-  "exec": "node --inspect -r ts-node/register  src/main.ts"
+  "exec": "node --inspect -r ts-node/register src/main.ts"
 }

@@ -1,10 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ReactElement } from "react";
 import { ComponentType } from "react";
-import { hydrate,  } from "react-dom";
+import { hydrate } from "react-dom";
 import { renderToNodeStream, renderToString } from "react-dom/server";
 
-export function ServerRender(component: ComponentType) {
-
+export function ServerRender(component: ReactElement) {
   return html(renderToString(component));
 }
 let html = (content) =>
