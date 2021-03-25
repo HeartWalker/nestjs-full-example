@@ -1,17 +1,17 @@
 import { Configuration } from "webpack";
-import { APPS } from './apps.config'
+import { APPS } from '../config/apps.config'
 
 const path = require('path');
-var nodeExternals = require('webpack-node-externals');
 let entry = APPS.reduce(function (cur, arr) {
   cur[arr.name] = path.resolve(__dirname, arr.path);
   return cur
 }, {});
 
-
+console.log(entry)
 
 export let WebpackConfig: Configuration = {
   mode: 'development',
+  target: 'web',
   entry: entry,
   output: {
     filename: '[name].js',
@@ -30,5 +30,4 @@ export let WebpackConfig: Configuration = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  externals: [nodeExternals()],
 };

@@ -1,12 +1,25 @@
-const path = require("path");
-var nodeExternals = require("webpack-node-externals");
 
-module.exports = {
-  mode: "development",
-  entry: "./src/main.ts",
+
+import { Configuration } from "webpack";
+import { APPS } from '../config/apps.config'
+
+const path = require('path');
+
+let entry = APPS.reduce(function (cur, arr) {
+  cur[arr.name] = path.resolve(__dirname, arr.path);
+  return cur
+}, {});
+
+console.log(entry)
+
+export let WebpackConfig: Configuration = {
+  mode: "production",
+  target: 'web',
+  entry: entry,
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
+    clean: true,
   },
   module: {
     rules: [
@@ -36,9 +49,9 @@ module.exports = {
           test: /[\\/]node_modules[\\/]/,
           minChunks: 2,
           priority: -10,
+          name: 'commons'
         },
       },
     },
   },
-  //externals: [nodeExternals()],
 };

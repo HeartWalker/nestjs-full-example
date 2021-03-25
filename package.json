@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "build": "ts-node ./build/build.dev.ts",
-    "build:prd": "webpack --config webpack.config.prd.js",
+    "build:prd": "ts-node ./build/build.prd.ts",
     "start": "nodemon --config nodemon.json"
   },
   "author": "",
@@ -32,6 +32,7 @@
     "typescript": "^4.2.3",
     "webpack": "^5.26.3",
     "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
     "webpack-node-externals": "^2.5.2"
   }
 }

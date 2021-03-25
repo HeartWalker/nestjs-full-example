@@ -1,29 +1,28 @@
 import webpack from 'webpack';
+import webpackDevServer from "webpack-dev-server";
+import { Config } from '../config/config';
 
-import { WebpackConfig } from './webpack.config';
+import { WebpackConfig } from './webpack.config.dev';
 
 
-const compiler = webpack({
-  ...WebpackConfig
-  // [配置对象](/configuration/)
-});
+const options = {
+  contentBase: './dist',
+  hot: true,
+  host: 'localhost',
+};
 
-compiler.run((err, stats) => { // [Stats Object](#stats-object)
-  // ...
-  if(err){
+webpackDevServer.addDevServerEntrypoints(WebpackConfig, options);
+const compiler = webpack(WebpackConfig);
+const server = new webpackDevServer(compiler, options);
+
+server.listen(Config.clientPort, 'localhost', (err) => {
+  if (err) {
     console.log(err)
-  }else {
+  } else {
     //console.log(stats)
   }
+  console.log(`dev server listening on port ${Config.clientPort}`);
 });
-// const watching = compiler.watch({
-//   // [watchOptions](/configuration/watch/#watchoptions) 示例
-//   aggregateTimeout: 300,
-//   poll: undefined
-// }, (err, stats) => { // [Stats Object](#stats-object)
-//   // 这里打印 watch/build 结果...
-//   if(err){
-//     console.log(err)
-//   }
-//   //console.log(stats);
-// });
+
+
+

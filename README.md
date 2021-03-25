@@ -7,9 +7,10 @@
 * 加入 webpack
 * 使用 ts-node, 全部支持typescript
 * 增加 多app入口功能
-* add react 
+* add react  react types
 * add nodemon
 
 * ssr
-* webpack 打包server,client...
+* webpack 打包server,client..., 根据不同入口引入 hydrate 后的js
+* 注水脱水
 * lerna

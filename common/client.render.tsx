@@ -1,15 +1,9 @@
-import React, { FC } from "react";
-import { ComponentType } from "react";
-import { hydrate } from "react-dom"; 
+import React, { FC, ReactElement } from "react";
+import { hydrate } from "react-dom";
 
-
-export function bootstrap(component: ComponentType) {
-
-
+export function clientRender(component: ReactElement) {
   let App: FC = () => {
-    return (
-      <div></div>
-    );
+    return <>{component}</>;
   };
 
   hydrate(<App />, document.getElementById("app"));

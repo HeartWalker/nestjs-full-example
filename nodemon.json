@@ -12,7 +12,8 @@
   "events": {
   },
   "watch": [
-    "src/"
+    "src/",
+    "common/"
   ],
   "env": {
     "NODE_ENV": "development"
