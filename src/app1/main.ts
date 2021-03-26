@@ -1,4 +1,4 @@
-import { bootstrap } from '../bootstrap';
+import { bootstrap } from '../../common/bootstrap';
 import { App1 } from './app1.module';
 
 

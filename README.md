@@ -11,6 +11,8 @@
 * add nodemon
 
 * ssr
-* webpack 打包server,client..., 根据不同入口引入 hydrate 后的js
+* webpack 打包server,
+* webpack 打包client..., 
+* 根据不同入口引入 hydrate 后的js（production）
 * 注水脱水
 * lerna

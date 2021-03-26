@@ -1,12 +1,8 @@
-
-
-import { Injectable } from '@nestjs/common';
-
-import { App2View } from "./app2.view";
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class AppService {
   getHello(): string {
-    return App2View() ;
+    return "app2";
   }
 }

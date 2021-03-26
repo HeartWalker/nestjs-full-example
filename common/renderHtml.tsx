@@ -6,6 +6,7 @@ let getScripts = () => {
   }
 };
 
+
 export let renderHtml = (content) => {
 
   return `<!DOCTYPE html>

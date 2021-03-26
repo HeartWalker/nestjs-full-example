@@ -13,7 +13,8 @@
   },
   "watch": [
     "src/",
-    "common/"
+    "common/",
+    "config/"
   ],
   "env": {
     "NODE_ENV": "development"

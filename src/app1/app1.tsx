@@ -7,7 +7,6 @@ export const App1 = (props) => {
       <button
         onClick={() => {
           alert(1);
-          console.log('=====')
         }}
       >
         button

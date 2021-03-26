@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { App1View } from './app1.view';
 
 @Injectable()
 export class AppService {
