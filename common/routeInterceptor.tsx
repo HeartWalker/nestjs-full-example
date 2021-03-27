@@ -33,6 +33,7 @@ export class RouteInterceptor implements NestInterceptor {
         return renderHtml({
           content: renderToString(<RenderReact {...data} />),
           scripts: getScripts(),
+          data: data,
         });
       })
     );

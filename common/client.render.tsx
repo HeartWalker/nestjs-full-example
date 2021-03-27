@@ -1,10 +1,14 @@
-import React, { FC, ReactElement } from "react";
+import React, { ComponentType, FC, ReactElement } from "react";
 import { hydrate } from "react-dom";
+declare let window: {
+  INITIAL_STATE: Object;
+};
 
-export function clientRender(component: ReactElement) {
-  let App: FC = () => {
-    return <>{component}</>;
-  };
+export function clientRender(Component:ComponentType<any>) {
+  let data = window.INITIAL_STATE;
+  // let App = () => {
+  //   return <Component {...data}/>;
+  // };
 
-  hydrate(<App />, document.getElementById("app"));
+  hydrate(<Component {...data}/>, document.getElementById("app"));
 }

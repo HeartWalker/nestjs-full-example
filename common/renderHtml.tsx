@@ -1,14 +1,7 @@
-import { Config } from "../config/config";
+import React from "react";
+import serialize from "serialize-javascript";
 
-let getScripts = () => {
-  if (process.env.NODE_ENV === "development") {
-    return `http://localhost:${Config.clientPort}`;
-  }
-};
-
-
-export let renderHtml = ({content,scripts}) => {
-
+export let renderHtml = ({ content, scripts, data }) => {
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -19,6 +12,9 @@ export let renderHtml = ({content,scripts}) => {
   </head>
   <body>
   <div id="app">${content}</div>
+  <script>window.INITIAL_STATE=${serialize(data, {
+    isJSON: true,
+  })}</script>
   <script src="${scripts}"></script>
   </body>
   </html>`;
