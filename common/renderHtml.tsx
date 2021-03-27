@@ -7,7 +7,7 @@ let getScripts = () => {
 };
 
 
-export let renderHtml = (content) => {
+export let renderHtml = ({content,scripts}) => {
 
   return `<!DOCTYPE html>
   <html lang="en">
@@ -19,7 +19,7 @@ export let renderHtml = (content) => {
   </head>
   <body>
   <div id="app">${content}</div>
-  <script src="${getScripts()}"></script>
+  <script src="${scripts}"></script>
   </body>
   </html>`;
 };

@@ -7,11 +7,11 @@ import { App2 } from './app2';
 //import { RouteInterceptor } from '../../common/routeInterceptor';
 
 //@UseInterceptors(RouteInterceptor)
-@Controller(APPSCONFIG.app2.name)
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get()
+  @Get(APPSCONFIG[ROUTES.APP2].routePath)
   @Route(ROUTES.APP2)
   @RenderReact(App2)
   getHello(): string {

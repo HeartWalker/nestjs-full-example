@@ -8,11 +8,11 @@ import { App1 } from './app1';
 //import { RouteInterceptor } from '../../common/routeInterceptor';
 
 //@UseInterceptors(RouteInterceptor)
-@Controller(APPSCONFIG.app1.name)
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get()
+  @Get(APPSCONFIG[ROUTES.APP1].routePath)
   @RenderReact(App1)
   @Route(ROUTES.APP1)
   async getHello() {

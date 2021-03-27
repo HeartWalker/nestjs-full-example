@@ -1,15 +1,19 @@
 
 
 import { Configuration } from "webpack";
-import { APPS } from '../config/apps.config'
+import { APPS, APPSCONFIG, ROUTES } from '../config/apps.config'
 
 const path = require('path');
 
-let entry = APPS.reduce(function (cur, arr) {
-  cur[arr.name] = path.resolve(__dirname, arr.path);
+// let entry = APPS.reduce(function (cur, arr) {
+//   cur[arr.name] = path.resolve(__dirname, arr.path);
+//   return cur
+// }, {});
+let entry = Object.values(ROUTES).reduce(function (cur, arr) {
+  
+  cur[arr] = path.resolve(__dirname, APPSCONFIG[arr].clientPath);
   return cur
 }, {});
-
 console.log(entry)
 
 export let WebpackConfig: Configuration = {
