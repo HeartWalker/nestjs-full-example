@@ -1,7 +1,7 @@
 
 
 import { Configuration } from "webpack";
-import AssetsPlugin from "assets-webpack-plugin"; 
+import AssetsPlugin from "assets-webpack-plugin";
 import { APPS, APPSCONFIG, ROUTES } from '../config/apps.config'
 
 const path = require('path');
@@ -12,7 +12,7 @@ const path = require('path');
 //   return cur
 // }, {});
 let entry = Object.values(ROUTES).reduce(function (cur, arr) {
-  
+
   cur[arr] = path.resolve(__dirname, APPSCONFIG[arr].clientPath);
   return cur
 }, {});
@@ -44,7 +44,7 @@ export let WebpackConfig: Configuration = {
       path: path.join('dist/'),
       filename: "assets.json",
       removeFullPathAutoPrefix: true,
-      prettyPrint: true ,
+      prettyPrint: true,
     })
   ],
   resolve: {
@@ -54,7 +54,7 @@ export let WebpackConfig: Configuration = {
     minimizer: [],
     splitChunks: {
       chunks: "initial",
-      name:"common",
+      name: "common",
       minSize: 20000,
       minRemainingSize: 0,
       //maxSize: 5,

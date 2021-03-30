@@ -1,18 +1,22 @@
+import { Configuration } from "webpack";
+
 const path = require("path");
 var nodeExternals = require("webpack-node-externals");
 
-module.exports = {
+
+let entry = "../src/main.ts"
+export let WebpackConfig: Configuration = {
   mode: "production",
   target: "node",
-  entry: "./src/main.ts",
+  entry: path.resolve(__dirname, entry),
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
   },
   module: {
     rules: [
       {
-        test: /\.[tj]sx?$/,
+        test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },

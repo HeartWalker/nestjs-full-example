@@ -1,7 +1,18 @@
 import React from "react";
 import serialize from "serialize-javascript";
 
-export let renderHtml = ({ content, scripts, data }) => {
+export let renderHtml = ({
+  content,
+  scripts,
+  data,
+}: {
+  content: string;
+  scripts: string[];
+  data: Object;
+}) => {
+  let scriptHtml = scripts.reduce((arr, cur) => {
+    return arr + `<script src="${cur}"></script>`;
+  }, "");
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -15,7 +26,7 @@ export let renderHtml = ({ content, scripts, data }) => {
   <script>window.INITIAL_STATE=${serialize(data, {
     isJSON: true,
   })}</script>
-  <script src="${scripts}"></script>
+  ${scriptHtml}
   </body>
   </html>`;
 };

@@ -14,5 +14,6 @@
 * webpack 打包server,
 * webpack 打包client..., 
 * 根据不同入口引入 hydrate 后的js（production）
+* 确保prd 引入顺序
 * 注水脱水
 * lerna
