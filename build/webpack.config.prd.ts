@@ -1,9 +1,11 @@
 
 
 import { Configuration } from "webpack";
+import AssetsPlugin from "assets-webpack-plugin"; 
 import { APPS, APPSCONFIG, ROUTES } from '../config/apps.config'
 
 const path = require('path');
+
 
 // let entry = APPS.reduce(function (cur, arr) {
 //   cur[arr.name] = path.resolve(__dirname, arr.path);
@@ -24,7 +26,6 @@ export let WebpackConfig: Configuration = {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../dist"),
     clean: true,
-
   },
   module: {
     rules: [
@@ -38,6 +39,14 @@ export let WebpackConfig: Configuration = {
       },
     ],
   },
+  plugins: [
+    new AssetsPlugin({
+      path: path.join('dist/'),
+      filename: "assets.json",
+      removeFullPathAutoPrefix: true,
+      prettyPrint: true ,
+    })
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
@@ -45,19 +54,20 @@ export let WebpackConfig: Configuration = {
     minimizer: [],
     splitChunks: {
       chunks: "initial",
+      name:"common",
       minSize: 20000,
       minRemainingSize: 0,
-      //maxSize: 0,
+      //maxSize: 5,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
       enforceSizeThreshold: 50000,
       cacheGroups: {
-        commons: {
+        vendors: {
           test: /[\\/]node_modules[\\/]/,
           minChunks: 2,
           priority: -10,
-          name: 'commons'
+          name: 'vendors'
         },
       },
     },

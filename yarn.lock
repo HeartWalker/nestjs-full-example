@@ -552,6 +552,15 @@ array-unique@^0.3.2:
   resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
+assets-webpack-plugin@^7.0.0:
+  version "7.0.0"
+  resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/assets-webpack-plugin/-/assets-webpack-plugin-7.0.0.tgz#c61ed7466f35ff7a4d90d7070948736f471b8804"
+  integrity sha1-xh7XRm81/3pNkNcHCUhzb0cbiAQ=
+  dependencies:
+    camelcase "^6.0.0"
+    escape-string-regexp "^4.0.0"
+    lodash "^4.17.20"
+
 assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
@@ -790,6 +799,11 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha1-48mzFWnhBoEd8kL3FXJaH0xJQyA=
+
+camelcase@^6.0.0:
+  version "6.2.0"
+  resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
+  integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
 caniuse-lite@^1.0.30001181:
   version "1.0.30001202"
@@ -1349,6 +1363,11 @@ escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+
+escape-string-regexp@^4.0.0:
+  version "4.0.0"
+  resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
+  integrity sha1-FLqDpdNz49MR5a/KKc9b+tllvzQ=
 
 eslint-scope@^5.1.1:
   version "5.1.1"
@@ -2391,7 +2410,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash@4.x, lodash@^4.17.11, lodash@^4.17.14:
+lodash@4.x, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.20:
   version "4.17.21"
   resolved "https://a.newegg.org/artifactory/api/npm/newegg-npm/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=

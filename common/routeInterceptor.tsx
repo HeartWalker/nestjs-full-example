@@ -25,6 +25,8 @@ export class RouteInterceptor implements NestInterceptor {
     let getScripts = () => {
       if (process.env.NODE_ENV === "development") {
         return `http://localhost:${Config.clientPort}/${routeName}.js`;
+      } else {
+        
       }
     };
 
