@@ -22,7 +22,7 @@ export let WebpackConfig: Configuration = {
   entry: entry,
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/public'),
     clean: true,
   },
   module: {

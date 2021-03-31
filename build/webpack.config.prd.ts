@@ -24,8 +24,7 @@ export let WebpackConfig: Configuration = {
   entry: entry,
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "../dist"),
-    clean: true,
+    path: path.resolve(__dirname, "../dist/public"),
   },
   module: {
     rules: [
@@ -42,9 +41,11 @@ export let WebpackConfig: Configuration = {
   plugins: [
     new AssetsPlugin({
       path: path.join('dist/'),
+      fileTypes: ['js', 'jsx',"ts","tsx"],
       filename: "assets.json",
       removeFullPathAutoPrefix: true,
       prettyPrint: true,
+     
     })
   ],
   resolve: {

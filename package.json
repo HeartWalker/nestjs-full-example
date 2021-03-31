@@ -1,13 +1,16 @@
 {
   "name": "nest-full-example",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "scripts": {
     "test": "jest",
-    "build": "ts-node ./build/build.dev.ts",
-    "start": "npm-run-all --parallel build \"nodemon --config nodemon.json\"",
-    "build:prd": "ts-node ./build/build.prd.ts",
-    "build:server": "tsc -p tsconfig.prd.json"
+    "dev:client": "ts-node ./build/build.dev.ts",
+    "dev:server": "nodemon --config nodemon.json",
+    "start": "npm-run-all dev:client dev:server",
+    "prd:client": "ts-node ./build/build.prd.ts",
+    "prd:server": "tsc -p tsconfig.prd.json",
+    "build:prd": "npm-run-all --parallel prd:client prd:server"
+  
   },
   "author": "",
   "license": "MIT",
