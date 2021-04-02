@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import webpackDevServer from "webpack-dev-server";
 import { Config } from '../config/config';
-
 import { WebpackConfig } from './webpack.config.dev';
 
 
@@ -10,6 +9,7 @@ const options = {
   hot: true,
   host: 'localhost',
 };
+
 
 webpackDevServer.addDevServerEntrypoints(WebpackConfig, options);
 const compiler = webpack(WebpackConfig);
@@ -23,6 +23,5 @@ server.listen(Config.clientPort, 'localhost', (err) => {
   }
   console.log(`dev server listening on port ${Config.clientPort}`);
 });
-
 
 

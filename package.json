@@ -4,13 +4,11 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "dev:client": "ts-node ./build/build.dev.ts",
-    "dev:server": "nodemon --config nodemon.json",
-    "start": "npm-run-all dev:client dev:server",
-    "prd:client": "ts-node ./build/build.prd.ts",
-    "prd:server": "tsc -p tsconfig.prd.json",
-    "build:prd": "npm-run-all --parallel prd:client prd:server"
-  
+    "dev:client": "ts-node ./build/client.dev.ts",
+    "dev:server": "ts-node ./build/server.dev.ts",
+    "start": "ts-node ./build/start.ts",
+    "prd:client": "ts-node ./build/client.prd.ts",
+    "prd:server": "ts-node ./build/server.prd.ts"
   },
   "author": "",
   "license": "MIT",
@@ -31,8 +29,8 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "assets-webpack-plugin": "^7.0.0",
+    "concurrently": "^6.0.0",
     "nodemon": "^2.0.7",
-    "npm-run-all": "^4.1.5",
     "ts-jest": "^26.5.4",
     "ts-loader": "^8.0.18",
     "ts-node": "^9.1.1",

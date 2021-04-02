@@ -2,26 +2,15 @@
 
 import { Configuration } from "webpack";
 import AssetsPlugin from "assets-webpack-plugin";
-import { APPS, APPSCONFIG, ROUTES } from '../config/apps.config'
+import { entryClient, getClientEntry } from "./getApp";
 
 const path = require('path');
 
 
-// let entry = APPS.reduce(function (cur, arr) {
-//   cur[arr.name] = path.resolve(__dirname, arr.path);
-//   return cur
-// }, {});
-let entry = Object.values(ROUTES).reduce(function (cur, arr) {
-
-  cur[arr] = path.resolve(__dirname, APPSCONFIG[arr].clientPath);
-  return cur
-}, {});
-console.log(entry)
-
 export let WebpackConfig: Configuration = {
   mode: "production",
   target: 'web',
-  entry: entry,
+  entry: entryClient,
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../dist/public"),
@@ -41,11 +30,11 @@ export let WebpackConfig: Configuration = {
   plugins: [
     new AssetsPlugin({
       path: path.join('dist/'),
-      fileTypes: ['js', 'jsx',"ts","tsx"],
+      fileTypes: ['js', 'jsx', "ts", "tsx"],
       filename: "assets.json",
       removeFullPathAutoPrefix: true,
       prettyPrint: true,
-     
+
     })
   ],
   resolve: {

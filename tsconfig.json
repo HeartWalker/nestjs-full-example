@@ -7,7 +7,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "ES2017",
     "jsx": "react",
     "sourceMap": true,
     "outDir": "./dist",
@@ -16,7 +16,6 @@
   },
   "exclude": [
     "node_modules",
-    "build",
     "dist",
   ]
 }

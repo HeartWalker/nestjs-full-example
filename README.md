@@ -1,5 +1,7 @@
 
-
+## 
+启动 dev: yarn start
+打包 prd: yarn build:prd
 
 ## 
 * 初始项目
