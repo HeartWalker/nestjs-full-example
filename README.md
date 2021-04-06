@@ -1,7 +1,7 @@
 
 ## 
 启动 dev: yarn start
-打包 prd: yarn build:prd
+打包 prd: yarn prd:client , yarn prd:server
 
 ## 
 * 初始项目
