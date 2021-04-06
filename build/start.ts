@@ -5,7 +5,7 @@ const concurrently = require("concurrently");
 
 import { getApp } from "./getApp";
 
-let app = getApp()
+let app = getApp() || "";
 
 concurrently([
   { command: `yarn run dev:client ${app}` },
