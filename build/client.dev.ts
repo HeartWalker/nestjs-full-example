@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import webpackDevServer from "webpack-dev-server";
-import { Config } from '../config/config';
+import { BuildConfig } from '../config/build.onfig';
 import { WebpackConfig } from './webpack.config.dev';
 
 
@@ -15,13 +15,14 @@ webpackDevServer.addDevServerEntrypoints(WebpackConfig, options);
 const compiler = webpack(WebpackConfig);
 const server = new webpackDevServer(compiler, options);
 
-server.listen(Config.clientPort, 'localhost', (err) => {
+server.listen(BuildConfig.clientPort, 'localhost', (err, stats) => {
+  console.log("==============：")
   if (err) {
     console.log(err)
   } else {
-    //console.log(stats)
+    console.log(stats)
   }
-  console.log(`dev server listening on port ${Config.clientPort}`);
+  console.log(`dev server listening on port ${BuildConfig.clientPort}`);
 });
 
 

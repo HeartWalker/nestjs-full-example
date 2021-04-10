@@ -1,0 +1,2 @@
+
+export { EConfig } from './eConfig';

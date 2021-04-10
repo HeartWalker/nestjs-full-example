@@ -5,7 +5,8 @@ import {
   ExecutionContext,
   CallHandler,
 } from "@nestjs/common";
-import { Config } from "../config/config";
+//import { EConfig } from "@packages/common";
+import { Config } from "../../../config/d.config"
 import React, { ComponentType } from "react";
 
 import { renderToString } from "react-dom/server";

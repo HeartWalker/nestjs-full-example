@@ -1,0 +1,10 @@
+{
+  "name": "@app/app1",
+  "version": "0.0.1",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "@packages/common": "0.0.1",
+    "@packages/server": "0.0.1"
+  }
+}

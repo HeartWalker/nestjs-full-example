@@ -19,5 +19,9 @@
 * 确保prd 引入顺序
 * 注水脱水
 * 404 / error
-* css
 * lerna
+* lerna 不同环境入口
+* 初始 config
+
+
+* css

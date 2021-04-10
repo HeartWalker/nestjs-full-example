@@ -2,6 +2,7 @@
   "name": "nest-full-example",
   "version": "0.1.1",
   "description": "",
+  "private": true,
   "scripts": {
     "test": "jest",
     "dev:client": "ts-node ./build/client.dev.ts",
@@ -10,6 +11,10 @@
     "prd:client": "ts-node ./build/client.prd.ts",
     "prd:server": "ts-node ./build/server.prd.ts"
   },
+  "workspaces": [
+    "packages/*",
+    "src/*"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -30,6 +35,7 @@
     "@types/react-dom": "^17.0.3",
     "assets-webpack-plugin": "^7.0.0",
     "concurrently": "^6.0.0",
+    "lerna": "^4.0.0",
     "nodemon": "^2.0.7",
     "ts-jest": "^26.5.4",
     "ts-loader": "^8.0.18",

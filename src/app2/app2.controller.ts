@@ -1,10 +1,10 @@
 import { Controller, Get, Render, UseInterceptors } from '@nestjs/common';
-import { Route } from '../../common/Route';
-import { RenderReact } from '../../common/renderReact';
+import { Route } from '@packages/server';
+import { RenderReact } from '@packages/server';
 import { APPSCONFIG, ROUTES } from '../../config/apps.config';
 import { AppService } from './app2.service';
 import { App2 } from './app2';
-//import { RouteInterceptor } from '../../common/routeInterceptor';
+//import { RouteInterceptor } from '@packages/server/routeInterceptor';
 
 //@UseInterceptors(RouteInterceptor)
 @Controller()
