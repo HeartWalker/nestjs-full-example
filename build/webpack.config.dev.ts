@@ -17,13 +17,13 @@ export let WebpackConfig: Configuration = {
     rules: [
       {
         test: /\.ts|tsx$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        use: [{
+          loader: 'ts-loader',
+        }]
       },
     ],
   },
   resolve: {
-    symlinks: true,
     extensions: ['.tsx', '.ts', '.js'],
   },
 };

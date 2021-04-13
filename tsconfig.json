@@ -15,9 +15,7 @@
     "incremental": true,
     "allowJs": true
   },
-  "include": [
-    "/node_modules/packages/",
-  ],
+
   "exclude": [
     "node_modules",
     "dist",
