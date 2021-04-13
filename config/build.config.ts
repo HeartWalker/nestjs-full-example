@@ -1,3 +1,3 @@
 export const BuildConfig = {
-  clientPort: '5001',
+  clientPort: '5000',
 }

@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import webpackDevServer from "webpack-dev-server";
-import { BuildConfig } from '../config/build.onfig';
+import { BuildConfig } from '../config/build.config';
 import { WebpackConfig } from './webpack.config.dev';
 
 
