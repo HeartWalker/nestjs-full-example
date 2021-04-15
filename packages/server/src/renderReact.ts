@@ -1,5 +1,5 @@
 import { ComponentType, FC, ReactElement } from "react";
-import { RENDER_REACT } from "./metaData";
+import { RENDER_REACT } from "@packages/common";
 
 
 export function RenderReact(template: ComponentType) {

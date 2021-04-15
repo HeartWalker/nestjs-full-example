@@ -13,5 +13,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@packages/common": "0.0.1"
   }
 }

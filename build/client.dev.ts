@@ -16,11 +16,10 @@ const compiler = webpack(WebpackConfig);
 const server = new webpackDevServer(compiler, options);
 
 server.listen(BuildConfig.clientPort, 'localhost', (err, stats) => {
-  console.log("==============：")
   if (err) {
     console.log(err)
   } else {
-    console.log(stats)
+    //console.log("stats=========",stats)
   }
   console.log(`dev server listening on port ${BuildConfig.clientPort}`);
 });

@@ -1,0 +1,7 @@
+{
+  "name": "@packages/client",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "license": "MIT",
+  "main": "./src/index.ts"
+}

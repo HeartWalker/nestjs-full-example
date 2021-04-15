@@ -1,5 +1,5 @@
 import { SetMetadata } from "@nestjs/common";
-import { ROUTE } from "./metaData";
+import { ROUTE } from "@packages/common";
 
 export function Route(route: string) {
   return (target, key, descriptor) => {

@@ -4,6 +4,7 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
+    "@packages/client": "0.0.1",
     "@packages/common": "0.0.1",
     "@packages/server": "0.0.1"
   }
