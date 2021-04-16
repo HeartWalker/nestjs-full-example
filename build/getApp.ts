@@ -22,7 +22,7 @@ export function getClientEntry(): { [key: string]: string } {
   if (entryClient[app]) {
     entryClient = { [app]: entryClient[app] }
   }
-  console.log('sssss',entryClient)
+  console.log('entryClient ==============: ',entryClient)
 
   return entryClient;
 }
