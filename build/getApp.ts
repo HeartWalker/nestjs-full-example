@@ -10,6 +10,8 @@ export let entryClient = Object.values(ROUTES).reduce(function (cur, arr) {
 }, {});
 
 export function getArgv() {
+  //console.log("process.argv",process.argv)
+
   return process.argv.slice(2);
 }
 
@@ -22,7 +24,6 @@ export function getClientEntry(): { [key: string]: string } {
   if (entryClient[app]) {
     entryClient = { [app]: entryClient[app] }
   }
-  console.log('entryClient ==============: ',entryClient)
 
   return entryClient;
 }

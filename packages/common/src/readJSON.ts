@@ -14,4 +14,3 @@ export let readJSON = (path: string): Promise<JSON> => {
   })
 
 }
-

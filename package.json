@@ -7,9 +7,13 @@
     "test": "jest",
     "dev:client": "ts-node ./build/client.dev.ts",
     "dev:server": "ts-node ./build/server.dev.ts",
+    "prestart":"yarn dev:packages",
     "start": "ts-node ./build/start.ts",
     "prd:client": "ts-node ./build/client.prd.ts",
-    "prd:server": "ts-node ./build/server.prd.ts"
+    "prd:server": "ts-node ./build/server.prd.ts",
+    "clean": "ts-node ./build/clean.ts",
+    "dev:packages":"ts-node ./build/packages src",
+    "pre:packages":"yarn clean & ts-node ./build/packages lib & tsc -b ./packages/"
   },
   "workspaces": [
     "packages/*",

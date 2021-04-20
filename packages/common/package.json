@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "license": "MIT",
-  "main": "./src/index.ts",
+  "main": "./lib",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

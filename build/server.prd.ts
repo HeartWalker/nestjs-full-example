@@ -25,12 +25,12 @@ tsJSON.files = [entry];
 let data = JSON.stringify(tsJSON);
 fs.writeFileSync(tsCP, data);
 
-exec(`tsc -p ${tsCP}`, {}, (err, stdout, stderr) => {
+exec(`tsc -b ${tsCP}`, {}, (err, stdout, stderr) => {
 
   if (err) {
-    console.log(err);
+    console.log("build server error:", err);
     return;
   }
-  console.log(`stdout1: ${stdout}`);
+  console.log(`stdout: ${stdout}`);
 });
 

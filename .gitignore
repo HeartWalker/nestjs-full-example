@@ -2,7 +2,8 @@
 /dist
 /node_modules
 tsconfig.prd.json
-
+**/*.tsbuildinfo
+**/lib
 # Logs
 logs
 *.log

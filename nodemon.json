@@ -13,12 +13,12 @@
   },
   "watch": [
     "src/",
-    "common/",
+    "packages/",
     "config/"
   ],
   "env": {
     "NODE_ENV": "development"
   },
   "ext": "js,json,ts,tsx",
-  "exec": "node --inspect -r ts-node/register "
+  "exec": "node --inspect=9300 -r ts-node/register "
 }

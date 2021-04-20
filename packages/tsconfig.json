@@ -1,0 +1,14 @@
+{
+  "references": [
+    {
+      "path": "client"
+    },
+    {
+      "path": "common"
+    },
+    {
+      "path": "server"
+    }
+  ],
+  "extends": "./tsconfig.common.json",
+}

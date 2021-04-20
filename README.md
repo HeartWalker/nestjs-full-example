@@ -1,8 +1,9 @@
 
 ## 
-启动 dev: yarn start
+启动 dev: yarn start [appName]
 打包 prd: yarn prd:client , yarn prd:server
-
+lerna ：
+yarn publish:packages -> lerna publish
 ## 
 * 初始项目
 * 引入 nest

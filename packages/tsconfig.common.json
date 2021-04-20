@@ -1,0 +1,23 @@
+{
+
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2017",
+    "jsx": "react",
+    "sourceMap": true,
+    "incremental": true,
+    "allowJs": true,
+    "composite": true,
+  },
+  "exclude": [
+    "node_modules",
+    "__tests__",
+    "lib"
+  ],
+}
