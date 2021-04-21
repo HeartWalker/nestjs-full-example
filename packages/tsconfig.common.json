@@ -14,10 +14,7 @@
     "incremental": true,
     "allowJs": true,
     "composite": true,
-  },
-  "exclude": [
-    "node_modules",
-    "__tests__",
-    "lib"
-  ],
+    "baseUrl": "./"
+  }
+
 }
