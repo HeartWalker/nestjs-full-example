@@ -20,7 +20,7 @@ import { ConfigService } from "./config.service";
 export class RouteInterceptor implements NestInterceptor {
   private configService;
   constructor(configService: ConfigService) {
-    this.configService = configService.getConfig();
+    this.configService = configService.get();
   }
 
   intercept(context: ExecutionContext, next: CallHandler) {
@@ -28,14 +28,16 @@ export class RouteInterceptor implements NestInterceptor {
     let RenderReact: ComponentType = Reflect.getMetadata(RENDER_REACT, hander);
     let routeName = Reflect.getMetadata(ROUTE, hander);
     //console.log("====:", RenderReact, routeName, hander);
-    let getScripts = () => {
+
+    let getAssets = (type: "js" | "css") => {
       if (process.env.NODE_ENV === "development") {
         return [
-          `http://localhost:${this.configService.clientPort}/${routeName}.js`,
+          `http://localhost:${this.configService.config.clientPort}/${routeName}.${type}`,
         ];
       } else {
-        const asstes = require("../assets.json");
-        let scripts = Object.entries(asstes)
+        const asstes = this.configService.assets;
+        //console.log("asssets==================", asstes);
+        let assteArr = Object.entries(asstes)
           .filter((v) => {
             let name = v[0];
             if (
@@ -48,10 +50,10 @@ export class RouteInterceptor implements NestInterceptor {
             return false;
           })
           .map((v) => {
-            return v[1]["js"];
+            return v[1][type];
           });
-        return scripts.map((script) => {
-          return `${this.configService.CDN}/${script}.`;
+        return assteArr.filter((v) => {
+          return v && `${this.configService.config.CDN}/${v}`;
         });
       }
     };
@@ -60,8 +62,9 @@ export class RouteInterceptor implements NestInterceptor {
       map((data) => {
         return renderHtml({
           content: renderToString(<RenderReact {...data} />),
-          scripts: getScripts(),
+          scripts: getAssets("js"),
           data: data,
+          styles: getAssets("css"),
         });
       })
     );

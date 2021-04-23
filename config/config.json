@@ -1,5 +1,5 @@
 {
   "serverPort": "3000",
   "clientPort": "5000",
-  "CDN": "https:test.cdn.com/"
+  "CDN": "https:test.cdn.com"
 }

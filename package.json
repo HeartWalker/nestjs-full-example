@@ -7,13 +7,13 @@
     "test": "jest",
     "dev:client": "ts-node ./build/client.dev.ts",
     "dev:server": "ts-node ./build/server.dev.ts",
-    "prestart":"yarn dev:packages",
+    "prestart": "yarn dev:packages",
     "start": "ts-node ./build/start.ts",
     "prd:client": "ts-node ./build/client.prd.ts",
     "prd:server": "ts-node ./build/server.prd.ts",
     "clean": "ts-node ./build/clean.ts",
-    "dev:packages":"ts-node ./build/packages src",
-    "pre:packages":"yarn clean & ts-node ./build/packages lib & tsc -b ./packages/"
+    "dev:packages": "ts-node ./build/packages src",
+    "pre:packages": "yarn clean & ts-node ./build/packages lib & tsc -b ./packages/"
   },
   "workspaces": [
     "packages/*",
@@ -25,6 +25,10 @@
     "@nestjs/common": "^7.6.14",
     "@nestjs/core": "^7.6.14",
     "@nestjs/platform-express": "^7.6.14",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.4",
+    "css-minimizer-webpack-plugin": "^2.0.0",
+    "mini-css-extract-plugin": "^1.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "reflect-metadata": "^0.1.13",

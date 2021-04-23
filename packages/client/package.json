@@ -3,5 +3,5 @@
   "version": "0.0.1",
   "description": "> TODO: description",
   "license": "MIT",
-  "main": "./lib"
+  "main": "./src"
 }

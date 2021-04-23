@@ -1,19 +1,26 @@
 
-
-import { Configuration } from "webpack";
+import { Configuration, DefinePlugin } from "webpack";
 import AssetsPlugin from "assets-webpack-plugin";
-import { entryClient, getClientEntry } from "./getApp";
 
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
+import { entryClient, getClientEntry } from "./getApp";
+
+
+let outPath = path.resolve(__dirname, "../dist") //'../dist/public';
+let staticPath = "public";
 
 export let WebpackConfig: Configuration = {
   mode: "production",
   target: 'web',
   entry: entryClient,
   output: {
-    filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "../dist/public"),
+    filename: staticPath + "/[name].[contenthash].js",
+    path: outPath,
   },
   module: {
     rules: [
@@ -25,23 +32,53 @@ export let WebpackConfig: Configuration = {
         }],
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: outPath,
+            },
+          },
+          'css-loader',
+        ],
+      }
+
     ],
   },
   plugins: [
+    new CopyPlugin({
+      patterns:
+        [
+          {
+            context: "config",
+            from: "*.json",
+            to: "config",
+          },
+        ]
+    }),
+    new DefinePlugin({
+      'process.env.target': JSON.stringify('web')
+    }),
     new AssetsPlugin({
-      path: path.join('dist/'),
-      fileTypes: ['js', 'jsx', "ts", "tsx"],
+      path: path.join('dist/config'),
+      fileTypes: ['js', 'jsx', "ts", "tsx", "css"],
       filename: "assets.json",
       removeFullPathAutoPrefix: true,
       prettyPrint: true,
-
-    })
+      includeAllFileTypes: false
+    }),
+    new MiniCssExtractPlugin({
+      filename: staticPath + '/[name].[contenthash].css',
+      chunkFilename: "[name].[contenthash].css",
+    }),
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   optimization: {
-    minimizer: [],
+    minimizer: [new TerserPlugin({}), new CssMinimizerPlugin()],
     splitChunks: {
       chunks: "initial",
       name: "common",

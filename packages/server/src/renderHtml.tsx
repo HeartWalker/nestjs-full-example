@@ -5,11 +5,16 @@ export let renderHtml = ({
   content,
   scripts,
   data,
+  styles,
 }: {
   content: string;
   scripts: string[];
   data: Object;
+  styles: string[];
 }) => {
+  let styleHtml = styles.reduce((arr, cur) => {
+    return arr + `<link rel="stylesheet" href="${cur}" />`;
+  }, "");
   let scriptHtml = scripts.reduce((arr, cur) => {
     return arr + `<script src="${cur}"></script>`;
   }, "");
@@ -20,6 +25,7 @@ export let renderHtml = ({
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Document</title>
+  ${styleHtml}
   </head>
   <body>
   <div id="app">${content}</div>

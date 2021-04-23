@@ -21,7 +21,7 @@ server.listen(Config.clientPort, 'localhost', (err, stats) => {
   } else {
     //console.log("stats=========",stats)
   }
-  console.log(`dev server listening on port ${Config.clientPort}`);
+  console.log(`dev client listening on port ${Config.clientPort}`);
 });
 
 

@@ -1,8 +1,11 @@
-import { Configuration } from "webpack";
+import { Configuration, DefinePlugin } from "webpack";
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 import { getClientEntry } from "./getApp";
 
 const path = require('path');
 
+let outPath = '../dist/public';
 
 export let WebpackConfig: Configuration = {
   mode: 'development',
@@ -10,9 +13,17 @@ export let WebpackConfig: Configuration = {
   entry: getClientEntry(),
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../dist/public'),
+    path: path.resolve(__dirname, outPath),
     clean: true,
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+    new DefinePlugin({
+      'process.env.target': JSON.stringify('web')
+    }),
+  ],
   module: {
     rules: [
       {
@@ -21,6 +32,19 @@ export let WebpackConfig: Configuration = {
           loader: 'ts-loader',
         }]
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: outPath,
+            },
+          },
+          'css-loader',
+        ],
+      }
+
     ],
   },
   resolve: {
